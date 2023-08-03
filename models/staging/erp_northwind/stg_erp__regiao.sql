@@ -2,7 +2,7 @@ with
     src_regiao as(
         select 
             cast(region_id as int) as regiao_id
-            , cast(region_description as string) as regia_nome
+            , cast(region_description as string) as regiao_nome
         
         from {{ source('erp', 'region') }}
     )

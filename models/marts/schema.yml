@@ -1,0 +1,45 @@
+
+version: 2
+
+models:
+    - name: dim_clientes
+      columns:
+        - name: cliente_id
+          tests:
+            - unique
+            - not_null
+
+    - name: dim_fornecedor
+      columns:
+        - name: fornec_id
+          tests:
+            - unique
+            - not_null
+
+    - name: dim_funcionario
+      columns:
+        - name: func_id
+          tests:
+            - unique
+            - not_null
+
+    - name: dim_produtos
+      columns:
+        - name: produto_id
+          tests:
+            - unique
+            - not_null
+
+    - name: dim_transportadora
+      columns:
+        - name: transportadora_id
+          tests:
+            - unique
+            - not_null
+
+    - name: fct_pedido-venda
+      columns:
+        - name: pk_vendas
+          tests:
+            - unique
+            - not_null
