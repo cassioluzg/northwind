@@ -1,0 +1,86 @@
+version: 2
+
+sources:
+  - name: erp
+    database: northwind-projeto-dw  
+    schema: erp_northwind
+    description: fonte de dados de vendas do SAP Northwind
+    tables:
+
+     # dim_produto
+      - name: products
+        description: tabela dimensao produtos
+        columns:
+          - name: product_id
+            tests:
+              - not_null
+              - unique
+
+      - name: categories
+        description: tabela dimensao categorias, complementar a dim_produtos
+        columns:
+          - name: category_id
+            tests:
+              - not_null
+              - unique
+
+      # dim_clientes
+      - name: customers
+        description: tabela dimensao clientes
+        columns:
+          - name: customer_id
+            tests:
+              - not_null
+              - unique
+
+      # dim_funcionarios
+      - name: employees
+        description: tabela dimensao de funcionarios
+        columns:
+          - name: employee_id
+            tests:
+              - not_null
+              - unique
+
+      - name: employee_territories
+        description: tabela terriotorio de funcionarios, complementar a dim_funcionarios
+          
+      # fct_pedidos
+      - name: orders
+        description: tabela fato de pedidos
+        columns:
+          - name: order_id
+            tests:
+              - not_null
+              - unique
+
+      - name: order_details
+        description: tabela detalhe dos pedidos, complementar a fct_pedidos
+
+      # dim_transportadoras
+      - name: shippers
+        description: tabela dimensao transportadoras
+        columns:
+          - name: shipper_id
+            tests:
+              - not_null
+              - unique
+
+      # dim_fornecedores
+      - name: suppliers
+        description: tabela dimensao fornecedores
+        columns:
+          - name: supplier_id
+            tests:
+              - not_null
+              - unique
+
+      # dim_localizacao
+      - name: territories
+        description: tabela de territorios, componente da dim_localizacao
+
+      - name: us_states
+        description: tabela de estados de USA, componente da dim_localizacao
+
+      - name: region
+        description: tabela de regioes, componente da dim_localizacao
